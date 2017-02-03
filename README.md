@@ -1,3 +1,8 @@
+Suqeezelite<br>
+<br>
+Updated to provide the following<br>
+1. Trigger power control GPIO and scripts when paused<br>
+<br>
 Squeezelite v1.8, Copyright 2012-2015 Adrian Smith, 2015-2016 Ralph Irving.<br>
 See -t for license terms<br>
 <br>
