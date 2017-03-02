@@ -70,9 +70,11 @@ event_event wake_e;
 #endif
 
 #if GPIO
+// Init the amp so it is idle and does
+// not turn on when program starts
 static u32_t ampidletime = 0;
-static int ampidle = 0;
-static int ampidle_set = 0;
+static int ampidle = 1;
+static int ampidle_set = 1;
 extern int ampstate;
 #define SLEEP_DELAY 300000
 #endif
@@ -300,6 +302,11 @@ static void process_strm(u8_t *pkt, int len) {
 				output.state = OUTPUT_STOPPED;
 				output.stop_time = gettime_ms();
 			}
+#if GPIO
+			// We have paused so set the idle flag and time
+			ampidle = 1;
+			ampidletime = gettime_ms();
+#endif
 			UNLOCK_O;
 			if (!interval) sendSTAT("STMp", 0);
 			LOG_DEBUG("pause interval: %u", interval);

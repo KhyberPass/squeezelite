@@ -76,6 +76,8 @@ void relay_script( int state) {
 		else{
 			initialized = 1;
 		}
+		// Do not control amp on init
+		return;
   	}
 
   // Call Script to turn on or off  on = 1, off = 0

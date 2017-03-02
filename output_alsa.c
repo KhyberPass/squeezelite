@@ -638,11 +638,13 @@ static void *output_thread(void *arg) {
 			// Wake up amp
 			if (gpio_active){ 
 				ampstate = 1;
-	         relay(1);
+		// Do not turn on amp on alsa start
+	         //relay(1);
 			}
 			if (power_script != NULL){
 				ampstate = 1;
-	         relay_script(1);
+		// Do not turn on amp on alsa start
+	         //relay_script(1);
 			}
 #endif
 			start = true;
