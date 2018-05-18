@@ -1,7 +1,11 @@
 Suqeezelite<br>
 <br>
-Updated to provide the following<br>
-1. Trigger power control GPIO and scripts when paused<br>
+The current amp power on/off implementation follows the alsa state. This means that it turns on when squeezelite is first started. It also does not turn off when a song is paused.<br>
+<br>
+Change the implementation so<br>
+1. The amp is not turned on when alsa starts and therefore is not turned on when the program  first starts<br>
+2. The amp is turned off, with a timer, when a song is paused<br>
+3. The amp script is not forced run upon init when the program first starts, the defaults are initialised for off<br>
 <br>
 Squeezelite v1.8, Copyright 2012-2015 Adrian Smith, 2015-2016 Ralph Irving.<br>
 See -t for license terms<br>
